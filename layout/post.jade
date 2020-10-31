@@ -14,35 +14,35 @@ block container
                     .bloginfo
                         ul
                             li.author
-                                | 作者：
+                                | Author：
                                 a(href='/')!= getValue(page, "author") || getConfig('author')
                             li.lmname
                                 a(href='/')!= getValue(page, "categories.data.0.name")
-                            li.timer!= '时间：' + date(page.date, "YYYY-MM-DD HH:mm:ss")
+                            li.timer!= 'Time：' + date(page.date, "YYYY-MM-DD HH:mm:ss")
                             li.view
                                 span#busuanzi_value_page_pv 99
-                                span 次访问
+                                span Page Views
                     .tags
                         each tag in getValue(page,"tags.data",[])
                             a(href=url_for(tag.path), target='_blank')!= tag.name
                     - if(page.excerpt)
                         .news_about
-                            strong 简介
+                            strong Excerpt
                             != page.excerpt
                      .news_con!= page.more || page.content
                 .nextinfo
-                    p 上一篇：
+                    p Previous：
                         - var prev = getValue(page,"prev");
                         if(prev)
                             a(href=url_for(prev.path))!= prev.title
                         else
-                            != '没有了'
-                    p 下一篇：
+                            != 'Nothing'
+                    p Next：
                         - var next = getValue(page,"next");
                             if(next)
                                 a(href=url_for(next.path))!= next.title
                             else
-                                != '没有了'
+                                != 'Nothing'
                 - if(page.comments)
                     .news_pl
                         include mixins/scripts
@@ -51,7 +51,7 @@ block container
         include mixins/right
         +card()
         +category()
-        +wechat()
+        //- +wechat()
 
 block scripts
     include mixins/scripts

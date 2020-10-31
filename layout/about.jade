@@ -15,14 +15,14 @@ block container
                     //.tags
                     .news_con!= page.content
                 .news_pl
-                    h2 评论
+                    h2 Comments
                     include mixins/scripts
                     +comment()
     aside.r_box
         include mixins/right
         +card()
         +category()
-        +wechat()
+        //- +wechat()
 block scripts
     include mixins/scripts
     +canvas()
